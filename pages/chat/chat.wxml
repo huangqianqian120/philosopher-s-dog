@@ -1,0 +1,30 @@
+<view class="container">
+  <view class="nav-bar">
+    <view class="back-btn" bindtap="goBack">
+      <image src="/images/back.png" mode="aspectFit"></image>
+    </view>
+    <view class="title">与{{philosopher}}的狗对话中</view>
+  </view>
+  <view class="chat-container">
+    <scroll-view scroll-y class="chat-messages" scroll-into-view="{{lastMessageId}}">
+      <view class="message {{item.type}}" wx:for="{{messages}}" wx:key="index" id="msg-{{index}}">
+        <image class="avatar" 
+               src="{{item.type === 'philosopher' ? '/images/head.png' : '/images/user.png'}}" 
+               mode="aspectFill"></image>
+        <view class="message-content">{{item.content}}</view>
+      </view>
+    </scroll-view>
+    <view class="input-container">
+      <input class="message-input" 
+             value="{{inputValue}}" 
+             bindinput="onInput"
+             bindconfirm="sendMessage"
+             confirm-type="send"
+             placeholder="输入消息..."
+             placeholder-class="input-placeholder"/>
+      <view class="send-button" bindtap="sendMessage">
+        <image src="/images/dog.png" class="send-icon"></image>
+      </view>
+    </view>
+  </view>
+</view> 

@@ -1,0 +1,4 @@
+<view class="container">
+  <image src="/images/loading.png" mode="aspectFill" class="loading-image"></image>
+  <view class="skip-button" bindtap="skipLoading">Skip</view>
+</view> 
