@@ -2,7 +2,7 @@
   <div class="container">
     <div class="nav-bar">
       <div class="back-btn" @click="goBack">
-        <img :src="`/philosophersdog/images/back.png`" alt="back">
+        <img src="/philosophersdog/images/back.png" alt="back">
       </div>
       <div class="title">与{{philosopher}}的狗对话中</div>
     </div>
@@ -32,7 +32,7 @@
           placeholder="输入消息..."
         >
         <div class="send-button" @click="sendMessage">
-          <img :src="`/philosophersdog/images/dog.png`" class="send-icon" alt="send">
+          <img src="/philosophersdog/images/dog.png" class="send-icon" alt="send">
         </div>
       </div>
     </div>
