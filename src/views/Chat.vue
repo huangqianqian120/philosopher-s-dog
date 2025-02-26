@@ -2,7 +2,7 @@
   <div class="container">
     <div class="nav-bar">
       <div class="back-btn" @click="goBack">
-        <img src="/philosophersdog/images/back.png" alt="back">
+        <img :src="images.back" alt="back">
       </div>
       <div class="title">与{{philosopher}}的狗对话中</div>
     </div>
@@ -17,7 +17,7 @@
         >
           <img 
             class="avatar" 
-            :src="item.type === 'philosopher' ? '/philosophersdog/images/head.png' : '/philosophersdog/images/user.png'" 
+            :src="item.type === 'philosopher' ? images.head : images.user" 
             :alt="item.type"
           >
           <div class="message-content">{{ item.content }}</div>
@@ -32,7 +32,7 @@
           placeholder="输入消息..."
         >
         <div class="send-button" @click="sendMessage">
-          <img src="/philosophersdog/images/dog.png" class="send-icon" alt="send">
+          <img :src="images.dog" class="send-icon" alt="send">
         </div>
       </div>
     </div>
@@ -44,6 +44,12 @@ import { ref, onMounted, nextTick, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import axios from 'axios'
 
+// 导入图片
+import backIcon from '@/assets/images/back.png'
+import headIcon from '@/assets/images/head.png'
+import userIcon from '@/assets/images/user.png'
+import dogIcon from '@/assets/images/dog.png'
+
 const router = useRouter()
 const route = useRoute()
 const messagesRef = ref(null)
@@ -53,6 +59,14 @@ const philosopher = ref('')
 const messages = ref([])
 const inputValue = ref('')
 const systemPrompt = ref('')
+
+// 创建图片URL引用
+const images = {
+  back: backIcon,
+  head: headIcon,
+  user: userIcon,
+  dog: dogIcon
+}
 
 onMounted(() => {
   if (!route.query.philosopher) {
@@ -110,9 +124,12 @@ const callDeepseekAPI = async (message) => {
       content: msg.content
     }))
 
+    // 使用 CORS 代理
+    const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/'
+    
     const response = await axios({
       method: 'post',
-      url: 'https://api.moonshot.cn/v1/chat/completions',
+      url: `${CORS_PROXY}https://api.moonshot.cn/v1/chat/completions`,
       data: {
         model: "moonshot-v1-8k",
         messages: [
@@ -131,7 +148,7 @@ const callDeepseekAPI = async (message) => {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer sk-hj3RTklVH2pQXBW8pYj3STfQX3pDjRgbvT4QEhEwTyhPVYdU`,
-        'Access-Control-Allow-Origin': '*'
+        'Origin': 'https://huangqianqian120.github.io'
       }
     })
 
