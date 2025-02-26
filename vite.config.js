@@ -15,7 +15,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'https://api.moonshot.cn',
+        target: 'https://api.moonshot.cn/v1',
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/api/, '')

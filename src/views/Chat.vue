@@ -124,12 +124,9 @@ const callDeepseekAPI = async (message) => {
       content: msg.content
     }))
 
-    // 使用 CORS 代理
-    const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/'
-    
     const response = await axios({
       method: 'post',
-      url: `${CORS_PROXY}https://api.moonshot.cn/v1/chat/completions`,
+      url: 'https://server-8wuhzle1p-anitas-projects-bf5fe71f.vercel.app/api/chat',
       data: {
         model: "moonshot-v1-8k",
         messages: [
@@ -144,15 +141,8 @@ const callDeepseekAPI = async (message) => {
           }
         ],
         temperature: 0.7
-      },
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer sk-hj3RTklVH2pQXBW8pYj3STfQX3pDjRgbvT4QEhEwTyhPVYdU`,
-        'Origin': 'https://huangqianqian120.github.io'
       }
     })
-
-    console.log('API Response:', response)
 
     if (response.data && response.data.choices && response.data.choices[0]) {
       return response.data.choices[0].message.content
@@ -160,10 +150,6 @@ const callDeepseekAPI = async (message) => {
     throw new Error('API响应数据格式错误')
   } catch (error) {
     console.error('API调用错误:', error.response || error)
-    if (error.response) {
-      console.error('Error Response:', error.response.data)
-      console.error('Error Status:', error.response.status)
-    }
     return null
   }
 }
