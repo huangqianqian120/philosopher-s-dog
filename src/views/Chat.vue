@@ -17,7 +17,7 @@
         >
           <img 
             class="avatar" 
-            :src="item.type === 'philosopher' ? '/src/assets/images/head.png' : '/src/assets/images/user.png'" 
+            :src="item.type === 'philosopher' ? '/public/images/head.png' : '/src/assets/images/user.png'" 
             :alt="item.type"
           >
           <div class="message-content">{{ item.content }}</div>
