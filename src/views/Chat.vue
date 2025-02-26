@@ -2,7 +2,7 @@
   <div class="container">
     <div class="nav-bar">
       <div class="back-btn" @click="goBack">
-        <img :src="`${baseUrl}images/back.png`" alt="back">
+        <img :src="`/philosophersdog/images/back.png`" alt="back">
       </div>
       <div class="title">与{{philosopher}}的狗对话中</div>
     </div>
@@ -17,7 +17,7 @@
         >
           <img 
             class="avatar" 
-            :src="item.type === 'philosopher' ? `${baseUrl}images/head.png` : `${baseUrl}images/user.png`" 
+            :src="item.type === 'philosopher' ? '/philosophersdog/images/head.png' : '/philosophersdog/images/user.png'" 
             :alt="item.type"
           >
           <div class="message-content">{{ item.content }}</div>
@@ -32,7 +32,7 @@
           placeholder="输入消息..."
         >
         <div class="send-button" @click="sendMessage">
-          <img :src="`${baseUrl}images/dog.png`" class="send-icon" alt="send">
+          <img :src="`/philosophersdog/images/dog.png`" class="send-icon" alt="send">
         </div>
       </div>
     </div>
@@ -110,24 +110,28 @@ const callDeepseekAPI = async (message) => {
       content: msg.content
     }))
 
-    const response = await axios.post('https://api.moonshot.cn/v1/chat/completions', {
-      model: "moonshot-v1-8k",
-      messages: [
-        {
-          role: "system",
-          content: systemPrompt.value
-        },
-        ...messageHistory,
-        {
-          role: "user",
-          content: message
-        }
-      ],
-      temperature: 0.7
-    }, {
+    const response = await axios({
+      method: 'post',
+      url: 'https://api.moonshot.cn/v1/chat/completions',
+      data: {
+        model: "moonshot-v1-8k",
+        messages: [
+          {
+            role: "system",
+            content: systemPrompt.value
+          },
+          ...messageHistory,
+          {
+            role: "user",
+            content: message
+          }
+        ],
+        temperature: 0.7
+      },
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer sk-hj3RTklVH2pQXBW8pYj3STfQX3pDjRgbvT4QEhEwTyhPVYdU`
+        'Authorization': `Bearer sk-hj3RTklVH2pQXBW8pYj3STfQX3pDjRgbvT4QEhEwTyhPVYdU`,
+        'Access-Control-Allow-Origin': '*'
       }
     })
 
