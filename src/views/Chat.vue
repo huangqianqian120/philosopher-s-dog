@@ -2,7 +2,7 @@
   <div class="container">
     <div class="nav-bar">
       <div class="back-btn" @click="goBack">
-        <img src="@/assets/images/back.png" alt="back">
+        <img :src="`${baseUrl}images/back.png`" alt="back">
       </div>
       <div class="title">与{{philosopher}}的狗对话中</div>
     </div>
@@ -17,7 +17,7 @@
         >
           <img 
             class="avatar" 
-            :src="item.type === 'philosopher' ? '/public/images/head.png' : '/src/assets/images/user.png'" 
+            :src="item.type === 'philosopher' ? `${baseUrl}images/head.png` : `${baseUrl}images/user.png`" 
             :alt="item.type"
           >
           <div class="message-content">{{ item.content }}</div>
@@ -32,7 +32,7 @@
           placeholder="输入消息..."
         >
         <div class="send-button" @click="sendMessage">
-          <img src="@/assets/images/dog.png" class="send-icon" alt="send">
+          <img :src="`${baseUrl}images/dog.png`" class="send-icon" alt="send">
         </div>
       </div>
     </div>
@@ -47,6 +47,7 @@ import axios from 'axios'
 const router = useRouter()
 const route = useRoute()
 const messagesRef = ref(null)
+const baseUrl = import.meta.env.BASE_URL
 
 const philosopher = ref('')
 const messages = ref([])
@@ -109,7 +110,7 @@ const callDeepseekAPI = async (message) => {
       content: msg.content
     }))
 
-    const response = await axios.post('/api/v1/chat/completions', {
+    const response = await axios.post('https://api.moonshot.cn/v1/chat/completions', {
       model: "moonshot-v1-8k",
       messages: [
         {
