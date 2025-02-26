@@ -13,3 +13,6 @@ $RECYCLE.BIN/
 # Node.js
 node_modules/
 dist/
+
+# 确保不要忽略 src/main.js
+!src/main.js

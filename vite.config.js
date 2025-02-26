@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
 
 export default defineConfig({
+  base: '/philosophersdog/',
   plugins: [vue()],
   resolve: {
     alias: {
@@ -20,5 +21,8 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api/, '')
       }
     }
+  },
+  build: {
+    outDir: 'docs'
   }
 }) 
