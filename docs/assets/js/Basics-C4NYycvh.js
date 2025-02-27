@@ -1,4 +1,4 @@
-import{_ as m}from"./back-DZ-gkFl9.js";import{_,c as t,a as i,F as p,d as r,j as u,u as v,o as s,t as o}from"./index-CeX8zK6L.js";const f=[{time:"公元前6世纪-公元前3世纪",title:"古希腊早期哲学",philosophers:["泰勒斯","毕达哥拉斯","赫拉克利特","巴门尼德","德谟克利特"],description:`泰勒斯提出"水是万物的本源"，开创自然哲学。
+import{_ as m}from"./back-DZ-gkFl9.js";import{_,c as t,a as i,F as p,d as r,j as u,u as v,o as s,t as o}from"./index-CFp6_n28.js";const f=[{time:"公元前6世纪-公元前3世纪",title:"古希腊早期哲学",philosophers:["泰勒斯","毕达哥拉斯","赫拉克利特","巴门尼德","德谟克利特"],description:`泰勒斯提出"水是万物的本源"，开创自然哲学。
 毕达哥拉斯认为"万物皆数"，发展数学哲学。
 赫拉克利特主张"万物流变"，提出"逻各斯"概念。
 巴门尼德提出"存在"概念，认为真实是永恒不变的。

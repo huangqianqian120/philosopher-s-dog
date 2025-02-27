@@ -126,7 +126,7 @@ const callDeepseekAPI = async (message) => {
 
     const response = await axios({
       method: 'post',
-      url: 'https://server-8wuhzle1p-anitas-projects-bf5fe71f.vercel.app/api/chat',
+      url: 'https://api.moonshot.cn/v1/chat/completions',
       data: {
         model: "moonshot-v1-8k",
         messages: [
@@ -141,6 +141,10 @@ const callDeepseekAPI = async (message) => {
           }
         ],
         temperature: 0.7
+      },
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer sk-hj3RTklVH2pQXBW8pYj3STfQX3pDjRgbvT4QEhEwTyhPVYdU`
       }
     })
 

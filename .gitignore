@@ -14,5 +14,6 @@ $RECYCLE.BIN/
 node_modules/
 dist/
 
-# 确保不要忽略 src/main.js
+# 确保不要忽略这些文件
 !src/main.js
+!docs/

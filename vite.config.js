@@ -10,18 +10,6 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src')
     }
   },
-  server: {
-    host: '0.0.0.0',
-    port: 3000,
-    proxy: {
-      '/api': {
-        target: 'https://api.moonshot.cn/v1',
-        changeOrigin: true,
-        secure: false,
-        rewrite: (path) => path.replace(/^\/api/, '')
-      }
-    }
-  },
   build: {
     outDir: 'docs',
     assetsDir: 'assets',
