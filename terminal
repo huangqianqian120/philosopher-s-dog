@@ -1,6 +1,0 @@
-# 创建必要的目录结构
-mkdir -p src/{views,components,assets/styles,router,store}
-
-# 移动现有文件
-mv style.css src/assets/styles/
-rm chat.html basics.html daily.html test.html 
