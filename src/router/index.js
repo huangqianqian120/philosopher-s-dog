@@ -1,30 +1,41 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import Loading from '../views/Loading.vue'
+import Index from '../views/Index.vue'
+import Chat from '../views/Chat.vue'
+import Basics from '../views/Basics.vue'
+import Daily from '../views/Daily.vue'
+import Test from '../views/Test.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Loading',
-    component: () => import('@/views/Loading.vue')
+    component: Loading
   },
   {
     path: '/index',
     name: 'Index',
-    component: () => import('@/views/Index.vue')
+    component: Index
   },
   {
     path: '/chat',
     name: 'Chat',
-    component: () => import('@/views/Chat.vue')
+    component: Chat
   },
   {
     path: '/basics',
     name: 'Basics',
-    component: () => import('@/views/Basics.vue')
+    component: Basics
   },
   {
     path: '/daily',
     name: 'Daily',
-    component: () => import('@/views/Daily.vue')
+    component: Daily
+  },
+  {
+    path: '/test',
+    name: 'Test',
+    component: Test
   }
 ]
 

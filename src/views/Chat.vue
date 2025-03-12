@@ -1,12 +1,8 @@
 <template>
-  <div class="container">
-    <div class="nav-bar">
-      <div class="back-btn" @click="goBack">
-        <img :src="images.back" alt="back">
-      </div>
+  <div class="chat-page">
+    <header>
       <div class="title">与{{philosopher}}的狗对话中</div>
-    </div>
-    
+    </header>
     <div class="chat-container">
       <div class="chat-messages" ref="messagesRef">
         <div 
@@ -157,14 +153,10 @@ const callDeepseekAPI = async (message) => {
     return null
   }
 }
-
-const goBack = () => {
-  router.push('/index')
-}
 </script>
 
 <style lang="scss" scoped>
-.container {
+.chat-page {
   height: 100vh;
   display: flex;
   flex-direction: column;

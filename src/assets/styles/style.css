@@ -1,0 +1,32 @@
+/* 全局样式 */
+:root {
+  /* 定义全局变量 */
+  --primary-color: #333;
+  --background-color: #fff;
+}
+
+/* 通用样式 */
+.title {
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+}
+
+/* 页面容器 */
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 测试页面样式 */
+.test-container {
+  padding: 20px;
+}
+
+/* 删除返回按钮相关样式 */
+.back-btn {
+  display: none;
+}
+
+/* 其他样式... */ 

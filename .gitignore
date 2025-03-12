@@ -17,3 +17,8 @@ dist/
 # 确保不要忽略这些文件
 !src/main.js
 !docs/
+
+# 更新.gitignore文件，添加必要的忽略规则
+.vscode/
+.idea/
+*.log

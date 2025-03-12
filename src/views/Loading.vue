@@ -1,28 +1,30 @@
 <template>
-  <div class="container">
-    <img src="@/assets/images/loading.png" class="loading-image" alt="loading">
-    <div class="nav-buttons">
-      <div class="nav-button right-top" @click="goToBasics">
-        <img src="@/assets/images/dog.png" class="button-icon" alt="dog">
-        <div class="button-text">
-          <span>Philosophy Basics</span>
-          <span class="chinese-text">哲学芝士</span>
+  <div class="loading-page">
+    <div class="content">
+      <div class="left-section">
+        <img src="@/assets/images/loading.png" alt="philosopher dog" class="main-image">
+      </div>
+      <div class="right-section">
+        <div class="icon-wrapper" @click="router.push('/basics')">
+          <img src="@/assets/images/dog.png" alt="basics" class="icon icon-1">
+          <span class="icon-text">哲学芝士</span>
+        </div>
+        <div class="icon-wrapper" @click="router.push('/chat')">
+          <img src="@/assets/images/dog.png" alt="chat" class="icon icon-2">
+          <span class="icon-text">和汪交流</span>
+        </div>
+        <div class="icon-wrapper" @click="router.push('/daily')">
+          <img src="@/assets/images/dog.png" alt="daily" class="icon icon-3">
+          <span class="icon-text">每日哲学</span>
+        </div>
+        <div class="icon-wrapper" @click="router.push('/test')">
+          <img src="@/assets/images/dog.png" alt="test" class="icon icon-4">
+          <span class="icon-text">哲学测试</span>
         </div>
       </div>
-      <div class="nav-button right-middle" @click="goToDaily">
-        <img src="@/assets/images/dog.png" class="button-icon" alt="dog">
-        <div class="button-text">
-          <span>Daily Philosophy</span>
-          <span class="chinese-text">每日哲学</span>
-        </div>
-      </div>
-      <div class="nav-button left-bottom" @click="goToChat">
-        <img src="@/assets/images/dog.png" class="button-icon" alt="dog">
-        <div class="button-text">
-          <span>Chat</span>
-          <span class="chinese-text">和汪交流</span>
-        </div>
-      </div>
+    </div>
+    <div class="app-info">
+      <h1>哲学家的狗</h1>
     </div>
   </div>
 </template>
@@ -31,106 +33,98 @@
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-
-const goToBasics = () => router.push('/basics')
-const goToDaily = () => router.push('/daily')
-const goToChat = () => router.push('/index')
 </script>
 
 <style lang="scss" scoped>
-.container {
+.loading-page {
+  min-height: 100vh;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
-  height: 100vh;
+  max-width: 1200px;
+  margin-bottom: 40px;
+  padding: 0 40px;
+}
+
+.left-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  
+  .main-image {
+    width: 700px;
+    height: 700px;
+    object-fit: contain;
+  }
+}
+
+.right-section {
   position: relative;
-  background: #ffffff;
-}
+  width: 400px;
+  height: 400px;
 
-.loading-image {
-  width: 50vw;
-  height: auto;
-  aspect-ratio: 1;
-  position: absolute;
-  top: 50%;
-  left: 40%;
-  transform: translate(-50%, -50%);
-}
+  .icon-wrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 
-.nav-buttons {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
+    &:hover {
+      transform: translateY(-5px);
+    }
 
-.nav-button {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
-  transition: all 0.3s ease;
-  cursor: pointer;
+    .icon {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      animation: float 3s ease-in-out infinite;
+      margin-bottom: 8px;
+    }
 
-  &:active {
-    opacity: 0.8;
-    transform: scale(1.1);
-    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 5px;
+    .icon-text {
+      font-size: 16px;
+      color: #333;
+      font-weight: 500;
+      opacity: 0.8;
+    }
   }
+
+  .icon-wrapper:nth-child(1) { top: 0; left: 20%; .icon { animation-delay: 0s; } }
+  .icon-wrapper:nth-child(2) { top: 30%; right: 0; .icon { animation-delay: 0.5s; } }
+  .icon-wrapper:nth-child(3) { bottom: 0; left: 30%; .icon { animation-delay: 1s; } }
+  .icon-wrapper:nth-child(4) { top: 50%; left: 0; .icon { animation-delay: 1.5s; } }
 }
 
-.button-icon {
-  width: 52px;
-  height: 52px;
-  transition: transform 0.3s ease;
-}
+.app-info {
+  text-align: center;
+  margin-top: 20px;
 
-.button-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-
-  span {
+  h1 {
+    font-size: 32px;
+    font-weight: 600;
     color: #333;
-    font-size: 14px;
-    font-weight: 300;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .chinese-text {
-    font-size: 12px;
-    opacity: 0.9;
+    margin-bottom: 12px;
   }
 }
 
-.right-top {
-  top: 500px;
-  left: 30px;
-}
-
-.right-middle {
-  top: 50%;
-  right: 30px;
-  transform: translateY(-50%);
-}
-
-.left-bottom {
-  top: 60px;
-  right: 75px;
-}
-
-.nav-button:active {
-  .button-icon {
-    transform: rotate(15deg);
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
   }
-
-  .button-text span {
-    transform: scale(1.05);
-    color: #000;
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  50% {
+    transform: translateY(-20px);
   }
 }
-</style> 
+</style>

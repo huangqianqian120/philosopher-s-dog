@@ -1,0 +1,37 @@
+<header>
+  <!-- 移除自定义返回按钮 -->
+  <div class="title">Philosophy Test</div>
+</header>
+
+<div class="test-container">
+  <!-- 欢迎页面 -->
+  <div class="welcome-page">
+    <h2>欢迎来到哲学测验</h2>
+    <p>通过回答一系列问题，你将了解自己的哲学倾向。</p>
+    <button class="start-btn">开始测验</button>
+  </div>
+
+  <!-- 测验说明 -->
+  <div class="instruction-page" style="display:none">
+    <h2>测验说明</h2>
+    <p>本测验包含15个问题，每个问题有4个选项。请根据你的真实想法选择最符合的选项。</p>
+    <button class="continue-btn">继续</button>
+  </div>
+
+  <!-- 问题页面 -->
+  <div class="question-page" style="display:none">
+    <div class="progress-bar">
+      <span class="progress-text">问题 1/15</span>
+    </div>
+    <div class="question-content">
+      <h3 class="question-text"></h3>
+      <div class="options-container"></div>
+    </div>
+  </div>
+
+  <!-- 结果页面 -->
+  <div class="result-page" style="display:none">
+    <h2>测验结果</h2>
+    <div class="result-content"></div>
+  </div>
+</div> 

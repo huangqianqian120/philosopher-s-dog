@@ -5,31 +5,35 @@
         <img src="@/assets/images/back.png" alt="back">
       </div>
     </div>
-    <div class="title">选择你喜欢的哲学家</div>
-    <div class="type-cards">
-      <div 
-        class="type-card" 
-        :class="{ active: selectedType === 'eastern' }"
-        @click="switchType('eastern')"
-      >
-        东方
+    
+    <div class="content">
+      <div class="title">选择你喜欢的哲学家</div>
+      <div class="type-cards">
+        <div 
+          class="type-card" 
+          :class="{ active: selectedType === 'eastern' }"
+          @click="switchType('eastern')"
+        >
+          东方
+        </div>
+        <div 
+          class="type-card" 
+          :class="{ active: selectedType === 'western' }"
+          @click="switchType('western')"
+        >
+          西方
+        </div>
       </div>
-      <div 
-        class="type-card" 
-        :class="{ active: selectedType === 'western' }"
-        @click="switchType('western')"
-      >
-        西方
-      </div>
-    </div>
-    <div class="philosopher-list">
-      <div 
-        class="philosopher-item" 
-        v-for="(item, index) in currentPhilosophers" 
-        :key="index"
-        @click="goToChat(item)"
-      >
-        {{ item }}
+      
+      <div class="philosopher-list">
+        <div 
+          class="philosopher-item" 
+          v-for="(item, index) in currentPhilosophers" 
+          :key="index"
+          @click="goToChat(item)"
+        >
+          {{ item }}
+        </div>
       </div>
     </div>
   </div>
@@ -149,5 +153,11 @@ const goBack = () => {
     background: #fafafa;
     transform: scale(0.98);
   }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
 }
 </style> 
